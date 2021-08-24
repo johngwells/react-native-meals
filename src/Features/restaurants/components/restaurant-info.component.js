@@ -36,7 +36,10 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
 
   return (
     <RestaurantCard elevation={5}>
-      <RestaurantCardCover key={name} source={{ uri: photos[0] }} />
+      <RestaurantCardCover
+        key={Math.random.toString(26)}
+        source={{ uri: photos[0] }}
+      />
       <Info>
         <Text variant="label">{name}</Text>
         <Section>
@@ -46,7 +49,7 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
             })}
           </Rating>
           <SectionEnd>
-            {isClosed && <Text variant="error">Closed</Text>}
+            {isClosed && <Text variant="error">Closed Temporarily</Text>}
             <Spacer position="left" size="large" />
             {isOpenNow && <Open xml={open} width={20} height={20} />}
             <Spacer position="left" size="large" />

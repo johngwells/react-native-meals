@@ -14,6 +14,7 @@ import { theme } from "./src/infrastructure/theme/index";
 import { RestaurantsScreen } from "./src/Features/restaurants/screens/restaurants.screen";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigationContainer } from "@react-navigation/native";
+import { RestaurantsContextProvider } from "./src/services/restaurants/mock/restaurants.context";
 
 function Map() {
   return (
@@ -48,6 +49,7 @@ const createScreenOptions = ({ route }) => {
   const iconName = TAB_ICON[route.name];
   return {
     tabBarIcon: ({ color, size }) => {
+      createTabBarOptions;
       return <Ionicons name={iconName} size={size} color={color} />;
     },
   };
@@ -55,10 +57,7 @@ const createScreenOptions = ({ route }) => {
 
 function MyTabs() {
   return (
-    <Tab.Navigator
-      screenOptions={createScreenOptions}
-      tabBarOptions={createTabBarOptions}
-    >
+    <Tab.Navigator screenOptions={createScreenOptions}>
       <Tab.Screen name="Restaurants" component={RestaurantsScreen} />
       <Tab.Screen name="Map" component={Map} />
       <Tab.Screen name="Settings" component={SettingsScreen} />
@@ -78,11 +77,13 @@ export default function App() {
     return null;
   }
   return (
-    <NavigationContainer>
-      <ThemeProvider theme={theme}>
-        <MyTabs />
-        <ExpoStatusBar style="auto" />
-      </ThemeProvider>
-    </NavigationContainer>
+    <RestaurantsContextProvider>
+      <NavigationContainer>
+        <ThemeProvider theme={theme}>
+          <MyTabs />
+          <ExpoStatusBar style="auto" />
+        </ThemeProvider>
+      </NavigationContainer>
+    </RestaurantsContextProvider>
   );
 }
