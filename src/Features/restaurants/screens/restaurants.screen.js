@@ -34,7 +34,6 @@ const LoadingContainer = styled.View`
 //   background-color: ${({ theme }) => theme.colors.bg.primary};`;
 
 export const RestaurantsScreen = ({ navigation }) => {
-  console.log(navigation);
   const { isLoading, restaurants } = useContext(RestaurantsContext);
   return (
     <SafeArea>
