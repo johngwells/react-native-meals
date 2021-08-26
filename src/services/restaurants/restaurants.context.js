@@ -21,7 +21,6 @@ export const RestaurantsContextProvider = ({ children }) => {
         .then((results) => {
           setIsLoading(false);
           setRestaurants(results);
-          console.log('setRestaurants', results)
         })
         .catch((err) => {
           setIsLoading(false);
