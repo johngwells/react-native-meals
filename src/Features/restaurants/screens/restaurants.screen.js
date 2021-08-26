@@ -6,7 +6,7 @@ import styled from "styled-components/native";
 import { RestaurantInfoCard } from "../components/restaurant-info.component";
 import { Search } from "../components/search.component";
 
-import { RestaurantsContext } from "../../../services/restaurants/mock/restaurants.context";
+import { RestaurantsContext } from "../../../services/restaurants/restaurants.context";
 
 const SafeArea = styled(SafeAreaView)`
   flex: 1;

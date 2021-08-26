@@ -14,7 +14,7 @@ import { theme } from "./src/infrastructure/theme/index";
 import { RestaurantsScreen } from "./src/Features/restaurants/screens/restaurants.screen";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigationContainer } from "@react-navigation/native";
-import { RestaurantsContextProvider } from "./src/services/restaurants/mock/restaurants.context";
+import { RestaurantsContextProvider } from "./src/services/restaurants/restaurants.context";
 import { LocationContextProvider } from "./src/services/location/location.context";
 
 function Map() {
@@ -41,16 +41,10 @@ const TAB_ICON = {
   Settings: "md-settings",
 };
 
-const createTabBarOptions = {
-  activeTintColor: "tomato",
-  inactiveTintColor: "gray",
-};
-
 const createScreenOptions = ({ route }) => {
   const iconName = TAB_ICON[route.name];
   return {
     tabBarIcon: ({ color, size }) => {
-      createTabBarOptions;
       return <Ionicons name={iconName} size={size} color={color} />;
     },
   };
