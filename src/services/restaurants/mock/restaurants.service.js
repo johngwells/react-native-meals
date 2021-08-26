@@ -22,15 +22,5 @@ export const restaurantTransform = ({ results = [] }) => {
       isClosed: restaurant.business_status === "CLOSED_TEMPORARILY",
     };
   });
-  // console.log(mappedResults);
   return camelize(mappedResults);
 };
-
-// restaurantsRequest()
-//   .then(restaurantsTransform)
-//   .then((transformedResponse) => {
-//     console.log(transformedResponse);
-//   })
-//   .catch((err) => {
-//     console.log(err);
-//   });

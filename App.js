@@ -15,6 +15,7 @@ import { RestaurantsScreen } from "./src/Features/restaurants/screens/restaurant
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigationContainer } from "@react-navigation/native";
 import { RestaurantsContextProvider } from "./src/services/restaurants/mock/restaurants.context";
+import { LocationContextProvider } from "./src/services/location/location.context";
 
 function Map() {
   return (
@@ -77,13 +78,15 @@ export default function App() {
     return null;
   }
   return (
-    <RestaurantsContextProvider>
-      <NavigationContainer>
-        <ThemeProvider theme={theme}>
-          <MyTabs />
-          <ExpoStatusBar style="auto" />
-        </ThemeProvider>
-      </NavigationContainer>
-    </RestaurantsContextProvider>
+    <LocationContextProvider>
+      <RestaurantsContextProvider>
+        <NavigationContainer>
+          <ThemeProvider theme={theme}>
+            <MyTabs />
+            <ExpoStatusBar style="auto" />
+          </ThemeProvider>
+        </NavigationContainer>
+      </RestaurantsContextProvider>
+    </LocationContextProvider>
   );
 }
