@@ -6,9 +6,6 @@ import * as firebase from "firebase";
 import { theme } from "./src/infrastructure/theme/index";
 import { Navigation } from "./src/infrastructure/navigation";
 
-import { RestaurantsContextProvider } from "./src/services/restaurants/restaurants.context";
-import { LocationContextProvider } from "./src/services/location/location.context";
-import { FavoritesContextProvider } from "./src/services/favorites/favorites.context";
 import { AuthenticationContextProvider } from "./src/services/Authentication/authentication.context";
 
 // Initialize Firebase
@@ -32,13 +29,7 @@ export default function App() {
     <>
       <ThemeProvider theme={theme}>
         <AuthenticationContextProvider>
-          <FavoritesContextProvider>
-            <LocationContextProvider>
-              <RestaurantsContextProvider>
-                <Navigation />
-              </RestaurantsContextProvider>
-            </LocationContextProvider>
-          </FavoritesContextProvider>
+          <Navigation />
         </AuthenticationContextProvider>
       </ThemeProvider>
       <ExpoStatusBar style="auto" />
