@@ -31,7 +31,7 @@ const Settings = () => {
   const { onLogout } = useContext(AuthenticationContext);
   return (
     <SafeArea>
-      <Text>Settings</Text>
+      {/* <Text>Settings</Text> */}
       <Button title="logout" onPress={() => onLogout()} />
     </SafeArea>
   );

@@ -5,7 +5,7 @@ import { ImageBackground } from "react-native";
 import { colors } from "../../../../infrastructure/theme/colors";
 
 export const image = {
-  uri: "https://i.pinimg.com/originals/98/98/d9/9898d93047bcd4efcdc143596a9318e1.jpg",
+  uri: "https://bolognaliving.com/wp-content/uploads/2018/12/kai-pilger-666758-unsplash.jpg",
 };
 
 export const ImageContainer = styled(View)`
@@ -51,4 +51,12 @@ export const ErrorContainer = styled.View`
   align-self: center;
   margin-top: ${(props) => props.theme.space[2]};
   margin-bottom: ${(props) => props.theme.space[2]};
+`;
+
+export const AnimationWrapper = styled.View`
+  width: 100%;
+  height: 40%;
+  position: absolute;
+  top: 30px;
+  padding: ${(props) => props.theme.space[2]};
 `;
