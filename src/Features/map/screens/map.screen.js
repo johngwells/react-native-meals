@@ -4,6 +4,8 @@ import styled from "styled-components/native";
 
 import { MapCallout } from "../components/map-callout.component";
 
+import { FadeInView } from "../../../components/animations/fade.animation";
+
 import { LocationContext } from "../../../services/location/location.context";
 import { RestaurantsContext } from "../../../services/restaurants/restaurants.context";
 
@@ -32,35 +34,37 @@ export const MapScreen = ({ navigation }) => {
   return (
     <>
       <Search />
-      <Map
-        region={{
-          latitude: lat,
-          longitude: lng,
-          latitudeDelta: latDelta,
-          longitudeDelta: 0.02,
-        }}
-      >
-        {restaurants.map((restaurant) => {
-          return (
-            <MapView.Marker
-              key={restaurant.name}
-              title={restaurant.name}
-              coordinate={{
-                latitude: restaurant.geometry.location.lat,
-                longitude: restaurant.geometry.location.lng,
-              }}
-            >
-              <MapView.Callout
-                onPress={() =>
-                  navigation.navigate("RestaurantDetail", { restaurant })
-                }
+      <FadeInView>
+        <Map
+          region={{
+            latitude: lat,
+            longitude: lng,
+            latitudeDelta: latDelta,
+            longitudeDelta: 0.02,
+          }}
+        >
+          {restaurants.map((restaurant) => {
+            return (
+              <MapView.Marker
+                key={restaurant.name}
+                title={restaurant.name}
+                coordinate={{
+                  latitude: restaurant.geometry.location.lat,
+                  longitude: restaurant.geometry.location.lng,
+                }}
               >
-                <MapCallout restaurant={restaurant} />
-              </MapView.Callout>
-            </MapView.Marker>
-          );
-        })}
-      </Map>
+                <MapView.Callout
+                  onPress={() =>
+                    navigation.navigate("RestaurantDetail", { restaurant })
+                  }
+                >
+                  <MapCallout restaurant={restaurant} />
+                </MapView.Callout>
+              </MapView.Marker>
+            );
+          })}
+        </Map>
+      </FadeInView>
     </>
   );
 };
