@@ -2,6 +2,7 @@ import React from "react";
 
 import { SettingsScreen } from "../../Features/settings/screens/settings.screen";
 import { FavoritesScreen } from "../../Features/settings/screens/favorites.screen";
+import { CameraScreen } from "../../Features/settings/screens/camera.screen";
 
 import {
   createStackNavigator,
@@ -26,6 +27,7 @@ export const SettingsNavigator = () => {
         component={SettingsScreen}
       />
       <SettingsStack.Screen name="Favorites" component={FavoritesScreen} />
+      <SettingsStack.Screen name="Camera" component={CameraScreen} />
     </SettingsStack.Navigator>
   );
 };
