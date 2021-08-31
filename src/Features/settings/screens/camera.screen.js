@@ -45,6 +45,7 @@ export const CameraScreen = ({ navigation }) => {
       <ProfileCamera
         type={Camera.Constants.Type.front}
         ref={(camera) => (cameraRef.current = camera)}
+        ratio={"16:9"}
       >
         <Text>Tap Screen</Text>
       </ProfileCamera>
